@@ -21,7 +21,7 @@ router.post('/authenticate',(req,res)=>{
 });
 
 // login in app
-router.post('/login',controller.login);
+router.post('/login',controller.verifyUser,controller.login);
 
 // GET Methods*************
 
