@@ -3,6 +3,9 @@ import cors from 'cors';
 // morgan libary use to log http request inside this console
 import morgan from "morgan";
 import connect from './database/mongoose.js'
+import router from './router/route.js'
+
+
 const app = express();
 
 // middleware
@@ -18,6 +21,10 @@ const port = 8000;
 app.get('/', (req, res) => {
     res.status(201).json("Home GET Request");
 })
+
+// api routes 
+
+app.use('/api',router);
 
 // start server only we have databse valid connection 
 connect().then(() => {
