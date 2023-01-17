@@ -1,19 +1,19 @@
 import UserModel from '../model/User.js';
 import bcrypt from "bcrypt";
-import  jwt  from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 
 
 /* middleware for verify user */
-export async function verifyUser(req,res,next){
-    try{
-        const {username} =req.method == 'GET' ? req.query : req.body;
+export async function verifyUser(req, res, next) {
+    try {
+        const { username } = req.method == 'GET' ? req.query : req.body;
 
         // check the user existance
-        let exist =await UserModel.findOne({username});
-        if(!exist) return res.status(404).send({error : "Can't find User!"});
+        let exist = await UserModel.findOne({ username });
+        if (!exist) return res.status(404).send({ error: "Can't find User!" });
         next();
-    }catch(error){
-        return res.status(404).send({error :"Authentication Error"});
+    } catch (error) {
+        return res.status(404).send({ error: "Authentication Error" });
     }
 }
 
@@ -98,8 +98,8 @@ export async function login(req, res) {
                         }, process.env.JWT_SECRET, { expiresIn: "24h" });
 
                         return res.status(200).send({
-                            msg:"Login Successful...!",
-                            username:user.username,
+                            msg: "Login Successful...!",
+                            username: user.username,
                             token
                         })
                     })
@@ -115,14 +115,45 @@ export async function login(req, res) {
     }
 }
 
-// GET
+// GET : http://localhost:8000/api/user/example123
 export async function getUser(req, res) {
-    res.json('getUser controller');
+    const { username } = req.params;
+
+    try {
+
+        if (!username) return res.status(501).send({ error: "Invalid Username" });
+
+        UserModel.findOne({ username }, function (err, user) {
+            if (err) return res.status(500).send({ err });
+            if (!user) return res.status(501).send({ error: "Could not find user" });
+
+            return res.status(201).send(user);
+        })
+
+    } catch (error) {
+        return res.status(404).send({ error: "Cannot find User Data" })
+    }
 }
 
-// PUT
+// PUT : http://localhost:8000/api/updateuser
 export async function updateUser(req, res) {
-    res.json('updateUser controller');
+    try {
+        // const id = req.query.id;
+        const { userId } = req.user;
+        if (userId) {
+            const body = req.body;
+            // update the user
+            UserModel.updateOne({ _id: userId }, body, function (err, data) {
+                if (err) throw err;
+                return res.status(201).send({ message: "User Updated...!" });
+            })
+        } else {
+            return res.status(401).send({ error: "User Not Found...!" });
+
+        }
+    } catch (error) {
+        return res.status(401).send({ error });
+    }
 }
 
 // GET
