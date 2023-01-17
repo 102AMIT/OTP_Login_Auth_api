@@ -4,7 +4,7 @@ const router=Router();
 
 // import all controller 
 import * as controller from '../controllers/appController.js';
-import auth from '../middleware/auth.js'
+import auth,{localVaribales} from '../middleware/auth.js'
 
 // POST methods*******************
 
@@ -30,7 +30,7 @@ router.post('/login',controller.verifyUser,controller.login);
 router.get('/user/:username',controller.getUser);
 
 // generate random otp
-router.get('/generateOTP',controller.generateOTP);
+router.get('/generateOTP',controller.verifyUser,localVaribales,controller.generateOTP);
 
 // verify generated OTP
 router.get('/verifyOTP',controller.verifyOTP);
