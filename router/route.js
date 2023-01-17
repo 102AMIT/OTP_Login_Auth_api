@@ -5,16 +5,14 @@ const router = Router();
 // import all controller 
 import * as controller from '../controllers/appController.js';
 import auth, { localVaribales } from '../middleware/auth.js'
-
+import { registerMail } from '../controllers/mailer.js'
 // POST methods*******************
 
 // for register the user
 router.post('/register', controller.register);
 
 // for send the email
-// router.post('/registerMail',(req,res)=>{
-//     res.json('registerMail route');
-// });
+router.post('/registerMail', registerMail);
 
 // authenticate user
 router.post('/authenticate', (req, res) => {
@@ -46,7 +44,7 @@ router.get('/createResetSession', controller.createResetSession);
 router.put('/updateuser', auth, controller.updateUser);
 
 // to use for reset the password
-router.put('/resetPassword',controller.verifyUser, controller.resetPassword);
+router.put('/resetPassword', controller.verifyUser, controller.resetPassword);
 
 
 
