@@ -10,9 +10,11 @@ dotenv.config();
 const app = express();
 
 // middleware
-app.use(express.json());
+app.use(express.json({limit: '50mb'}));
 app.use(cors());
+// app.options('*', cors())
 // The preset tiny provides the minimal output when logging HTTP requests. 
+
 app.use(morgan('tiny'));
 app.disable('x-powered-by');// less hackers know about our stack (Remove the X-Powered-By headers);
 

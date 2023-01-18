@@ -6,8 +6,8 @@ let nodeConfig = {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: process.env.username, // generated ethereal user
-        pass: process.env.password, // generated ethereal password
+        user: 'alta23@ethereal.email', // generated ethereal user
+        pass: 'T6Sqz6gNhvQNWQgP61', // generated ethereal password
     }
 }
 let transporter = nodemailer.createTransport(nodeConfig);
@@ -25,7 +25,7 @@ export const registerMail = async (req, res) => {
     const { username, userEmail, text, subject } = req.body;
 
     // body of the email
-
+    console.log(username + ' ' + userEmail + ' ' + text + ' ' + subject);
     var email = {
         body: {
             name: username,
