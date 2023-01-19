@@ -29,13 +29,21 @@ So let's look on folder structure And tech stack One by One I also Provide the R
 Folder Structure :-😉😉😉😉😉😉😉😉😉😉
 
 1 . controllers :- All the business Logic writting here.
+
 2.  database    :- Here i connect my database *(Here you need to provide Your database Url).
+
 3.  middleware  :- Authentication Logic written Here.
+
 4.  model       :- This is Schema Here i'm define What we have in our Object(Object is Our user Info).
+
 5.  router      :- This is router here i define every route for this application
+
 6.  .gitignore  :- This is for prevent the file for push on gitHub
+
 7.  package-lock.json :- Dependencies of dependencies are here . All the Tech stack info avilable here.
+
 8.  package.json:-  All the dependencies are we use to build this app are avilable here.
+
 9.server.js     :- This is our root file by that we can access each and every thing in our sub-folders
 
 
