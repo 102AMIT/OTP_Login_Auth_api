@@ -18,7 +18,7 @@ app.use(cors());
 app.use(morgan('tiny'));
 app.disable('x-powered-by');// less hackers know about our stack (Remove the X-Powered-By headers);
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 // HTTP get Request
 app.get('/', (req, res) => {
