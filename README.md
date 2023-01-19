@@ -18,14 +18,15 @@ Password authentication with static password is particularly vulnerable as these
 
 So if you want to run this code on your machine you need two thing node_module and dotenv file for that .
 
-For node_module : Type on terminal - > npm install OR npm i
-For dotenv : Create a .env file in local machine And you need to assign DB_URL :"Here you need to provide local or any cloud url whatever you want"
+For node_module : Type on terminal - > npm install OR npm i ✔
 
-So let's look on folder structure And tech tack One by One I also Provide the Routes of the api With Images :
+For dotenv : Create a .env file in local machine And you need to assign DB_URL :"Here you need to provide local or any cloud url whatever you want"✔
+
+So let's look on folder structure And tech stack One by One I also Provide the Routes of the api With Images :
 
 ***********************************************************************************************************
 
-Folder Structure :-
+Folder Structure :-😉😉😉😉😉😉😉😉😉😉
 
 1 . controllers :- All the business Logic writting here.
 2.  database    :- Here i connect my database *(Here you need to provide Your database Url).
@@ -38,7 +39,7 @@ Folder Structure :-
 9.server.js     :- This is our root file by that we can access each and every thing in our sub-folders
 
 
-So let's See our route :-
+So let's See our route :-🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗
 
 IF use database is local then use : http://localhost:8000/ Other wise Your cloud url ex : https://login-auth-api.onrender.com/
 
